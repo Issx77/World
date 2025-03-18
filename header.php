@@ -32,6 +32,10 @@
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
+      .dropdown-menu{
+max-height: 400px;
+overflow-y: auto;
+}
     }
   </style>
   <!-- Custom styles for this template -->
@@ -57,17 +61,33 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-             aria-expanded="false">continent</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            
-            <a class="dropdown-item" href="#">afrique</a>
-            <a class="dropdown-item" href="#">europe</a>
-            <a class="dropdown-item" href="#">Asie</a>
-            <a class="dropdown-item" href="#">Amérique</a>
-            <a class="dropdown-item" href="#">Oceanie</a>v
-          </div>
+        <?php
+          require_once 'inc/manager-db.php';
+          $lesContinents = getContinent() ;
+          $lesPays = getAllCountries();
+
+          //var_dump($lesContinents);
+          ?>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">Continent</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown01">
+    <?php foreach($lesContinents as $leContinent) : ?>
+    <a class="dropdown-item" href="index2.php?name=<?= $leContinent->continent ; ?>"><?= $leContinent->continent; ?> </a>
+<?php endforeach ; ?>
+</div>
+</li>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">pays</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown01">
+    <?php foreach($lesPays as $lePays) : ?>
+    <a class="dropdown-item" href="pays.php?name=<?= $lePays->id ; ?>"><?= $lePays->Name; ?> </a>
+<?php endforeach ; ?>
+</div>
+</li>
+</div></ul>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

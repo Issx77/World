@@ -60,3 +60,9 @@ function getAllCountries()
     $query = 'SELECT * FROM Country;';
     return $pdo->query($query)->fetchAll();
 }
+function getContinent()
+{
+global $pdo;
+$query = 'SELECT DISTINCT continent FROM Country;';
+return $pdo->query($query)->fetchAll();
+}

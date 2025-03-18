@@ -34,7 +34,7 @@ $desPays = getAllCountries();
     <div>
      <table class="table">
          <tr>
-         <?php echo "<h1>Les pays ".$continent."</h1>"?>
+         <?php echo "<h1>$desPays->Name</h1>"?>
            <th>Nom</th>
            <th>Population</th>
            <th>Surface</th>
