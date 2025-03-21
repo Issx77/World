@@ -83,7 +83,7 @@ overflow-y: auto;
   aria-expanded="false">pays</a>
   <div class="dropdown-menu" aria-labelledby="dropdown01">
     <?php foreach($lesPays as $lePays) : ?>
-    <a class="dropdown-item" href="pays.php?name=<?= $lePays->id ; ?>"><?= $lePays->Name; ?> </a>
+    <a class="dropdown-item" href="pays.php?name=<?= $lePays->Name ; ?>"><?= $lePays->Name; ?> </a>
 <?php endforeach ; ?>
 </div>
 </li>

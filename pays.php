@@ -22,7 +22,7 @@ $continent = ($_GET['name']);
 $desPays = getCountriesByContinent($continent);
 }
 else{
-$continent = "Monde";
+$continent = "monde";
 $desPays = getAllCountries();
 }
 ?>
@@ -34,23 +34,25 @@ $desPays = getAllCountries();
     <div>
      <table class="table">
          <tr>
-         <?php echo "<h1>$desPays->Name</h1>"?>
+         <?php echo"<h1>$continent</h1>"?>
            <th>Nom</th>
            <th>Population</th>
            <th>Surface</th>
            <th>Chef etat</th>
+           <th>Capitale</th>
          </tr>
        <?php
        // $desPays est un tableau dont les éléments sont des objets représentant
        // des caractéristiques d'un pays (en relation avec les colonnes de la table Country)
-       foreach ($desPays as $pays) { ?>
+       ?>
           <tr>
-            <td> <?php echo $pays->Name ?></td>
+            <td> <?php echo $continent  ?></td>
             <td> <?php echo $pays->Population ?></td>
             <td> <?php echo $pays->SurfaceArea?></td>
             <td> <?php echo $pays->HeadOfState?></td>
+            <td> <?php echo getCapital($continent->Name)?></td>
           </tr>
-          <?php } ?>
+          <?php  ?>
      </table>
     </div>
   </div>

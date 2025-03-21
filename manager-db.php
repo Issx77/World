@@ -66,3 +66,13 @@ global $pdo;
 $query = 'SELECT DISTINCT continent FROM Country;';
 return $pdo->query($query)->fetchAll();
 }
+function getCapital($idpays)
+{
+global $pdo;
+$query = 'SELECT Name FROM City Where id=:id; ';
+$prep = $pdo->prepare($query);
+$prep->bindValue(':id', $idpays, PDO::PARAM_STR);
+$prep->execute();
+return $prep->fetch();
+}
+
